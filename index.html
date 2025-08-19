@@ -10,7 +10,7 @@
     <meta property="og:title" content="Tera Vira - Melodic Deep House Artist">
     <meta property="og:description" content="Professional melodic deep house producer creating atmospheric beats and soul-moving electronic music.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://teravira.com">
+    <meta property="og:url" content="https://teraviramusic.com">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tera Vira - Melodic Deep House Artist">
     <meta name="twitter:description" content="Professional melodic deep house producer creating atmospheric beats and soul-moving electronic music.">
@@ -18,23 +18,21 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-orange: #ff8c00;
-            --primary-green: #00ff88;
-            --accent-orange: #ff6b35;
-            --accent-green: #00cc6a;
-            --bg-black: #0d0d0d;
-            --bg-dark: #1a1a1a;
-            --bg-card: #262626;
+            --bg-black: #000000;
+            --bg-dark: #111111;
+            --bg-card: #1a1a1a;
+            --bg-hover: #222222;
             --text-white: #ffffff;
-            --text-gray: #a0a0a0;
+            --text-gray: #888888;
             --text-light: #cccccc;
-            --shadow-orange: rgba(255, 140, 0, 0.3);
-            --shadow-green: rgba(0, 255, 136, 0.3);
+            --accent: #ffffff;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -48,69 +46,20 @@
         }
 
         body {
-            font-family: 'Circular Std', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-black);
             color: var(--text-white);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Background gradient overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 25% 25%, var(--shadow-orange) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, var(--shadow-green) 0%, transparent 50%);
-            opacity: 0.1;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Marquee Banner */
-        .marquee-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(90deg, var(--primary-orange), var(--primary-green));
-            overflow: hidden;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-        }
-
-        .marquee {
-            display: flex;
-            animation: scroll 20s linear infinite;
-            white-space: nowrap;
-        }
-
-        .marquee-text {
-            color: var(--bg-black);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0 3rem;
-            letter-spacing: 0.05em;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 420px;
+            max-width: 400px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
-            padding-top: 5rem; /* Account for marquee */
+            padding: 2rem 1rem;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -118,140 +67,226 @@
             gap: 2rem;
         }
 
-        /* Header Section */
-        .header {
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out;
+        /* All Links Button */
+        .all-links-btn {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo {
+        .all-links-btn:hover {
+            background: var(--bg-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .profile-circle {
             width: 100px;
             height: 100px;
-            margin: 0 auto 1.5rem;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-green));
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            transition: transform 0.3s ease;
-            overflow: hidden;
+            font-size: 2rem;
+            color: var(--text-white);
+            transition: all 0.3s ease;
         }
 
-        .logo::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--primary-orange), var(--primary-green), var(--primary-orange));
-            animation: rotate 8s linear infinite;
-            z-index: -1;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            border-radius: 50%;
-            background: var(--bg-black);
-            z-index: 0;
-        }
-
-        .logo-icon {
-            font-size: 2.2rem;
-            color: var(--primary-green);
-            z-index: 1;
-            position: relative;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
+        .profile-circle:hover {
+            border-color: var(--text-white);
+            background: var(--bg-hover);
         }
 
         .artist-name {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.05em;
-            font-family: 'Circular Std', sans-serif;
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-green));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
+            font-size: 1rem;
+            color: var(--text-gray);
             font-weight: 400;
             margin-bottom: 0.8rem;
         }
 
         .description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-gray);
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
             font-weight: 300;
         }
 
-        /* Buttons Section */
-        .buttons {
+        /* Links Section */
+        .links {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            gap: 0.8rem;
         }
 
-        .btn {
+        .link-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            padding: 1rem 2rem;
-            border: none;
+            padding: 1rem 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
+            color: var(--text-white);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            font-family: inherit;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-        }
-
-        .btn-primary:hover {
+        .link-item:hover {
+            background: var(--bg-hover);
+            border-color: var(--text-white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+            box-shadow: var(--shadow);
         }
 
-        .btn-secondary {
-            background: var(--bg-card);
-            color: var(--text-white);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-dark);
-            border-color: var(--primary-green);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
-        }
-
-        .btn-icon {
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .link-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .link-action {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-left: auto;
+        }
+
+        /* Platform specific colors */
+        .spotify { border-left: 3px solid #1DB954; }
+        .apple { border-left: 3px solid #fc3c44; }
+        .youtube { border-left: 3px solid #FF0000; }
+        .tidal { border-left: 3px solid #000000; }
+        .deezer { border-left: 3px solid #ff6600; }
+        .track { border-left: 3px solid #ffffff; }
+
+        /* Music Player */
+        .music-player {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .player-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .player-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .now-playing {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .track-art {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            font-size: 1.5rem;
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .track-artist {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--text-white);
+            color: var(--bg-black);
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Contact Section */
@@ -259,41 +294,38 @@
             text-align: center;
             padding: 1.5rem;
             background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
         .contact-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--text-white);
             margin-bottom: 0.5rem;
         }
 
         .contact-email {
-            color: var(--primary-green);
+            color: var(--text-white);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .contact-email:hover {
-            color: var(--accent-green);
+            color: var(--text-gray);
         }
 
-        /* Keywords for SEO (hidden) */
-        .seo-keywords {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
+        .contact-desc {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
         }
 
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -301,129 +333,68 @@
             }
         }
 
-        /* Responsive Design */
+        .container > * {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .container > *:nth-child(1) { animation-delay: 0.1s; }
+        .container > *:nth-child(2) { animation-delay: 0.2s; }
+        .container > *:nth-child(3) { animation-delay: 0.3s; }
+        .container > *:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive */
         @media (max-width: 480px) {
-            .marquee-container {
-                height: 35px;
-            }
-
-            .marquee-text {
-                font-size: 0.8rem;
-                padding: 0 2rem;
-            }
-
             .container {
-                padding: 2rem 1rem;
-                padding-top: 4rem;
-                gap: 1.5rem;
+                padding: 1.5rem 0.8rem;
             }
 
             .artist-name {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .subtitle {
-                font-size: 1rem;
+            .all-links-btn {
+                top: 0.5rem;
+                right: 0.5rem;
             }
 
-            .description {
-                font-size: 0.9rem;
+            .link-item {
+                padding: 0.9rem 1rem;
             }
 
-            .btn {
-                padding: 0.9rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .logo {
+            .profile-circle {
                 width: 80px;
                 height: 80px;
-            }
-
-            .logo-icon {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
         @media (max-width: 360px) {
-            .marquee-container {
-                height: 32px;
+            .all-links-btn span {
+                display: none;
             }
 
-            .marquee-text {
-                font-size: 0.75rem;
-                padding: 0 1.5rem;
-            }
-
-            .container {
-                padding: 1.5rem 0.8rem;
-                padding-top: 3.5rem;
-            }
-
-            .artist-name {
-                font-size: 1.8rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.2rem;
-                font-size: 0.9rem;
+            .all-links-btn {
+                padding: 0.4rem;
+                width: 36px;
+                height: 36px;
+                justify-content: center;
             }
         }
 
         /* Focus states for accessibility */
-        .btn:focus {
-            outline: 2px solid var(--primary-green);
-            outline-offset: 2px;
-        }
-
+        .link-item:focus,
+        .all-links-btn:focus,
         .contact-email:focus {
-            outline: 2px solid var(--primary-green);
+            outline: 2px solid var(--text-white);
             outline-offset: 2px;
         }
 
-        /* Loading animation */
-        .container > * {
+        /* SEO keywords (hidden) */
+        .seo-keywords {
+            position: absolute;
+            left: -9999px;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .container > *:nth-child(1) { animation-delay: 0s; }
-        .container > *:nth-child(2) { animation-delay: 0.2s; }
-        .container > *:nth-child(3) { animation-delay: 0.4s; }
-
-        /* Hover effects */
-        @media (hover: hover) {
-            .btn::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.1);
-                transition: all 0.3s ease;
-                transform: translate(-50%, -50%);
-            }
-
-            .btn:hover::before {
-                width: 300px;
-                height: 300px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .btn {
-                border: 2px solid black;
-                background: white;
-                color: black;
-            }
         }
     </style>
 
@@ -436,9 +407,12 @@
         "alternateName": "TeraVira",
         "description": "Professional melodic deep house producer and electronic music artist creating atmospheric beats and soul-moving electronic dance music",
         "genre": ["Deep House", "Electronic Music", "Melodic House", "EDM"],
-        "url": "https://teravira.com",
+        "url": "https://teraviramusic.com",
         "sameAs": [
-            "https://linktr.ee/teravira"
+            "https://linktr.ee/teravira",
+            "https://open.spotify.com/intl-tr/artist/2MEEO33iNTIMw7ajtzqhig",
+            "https://music.apple.com/us/artist/tera-vira/1833012399",
+            "https://www.youtube.com/@teravira"
         ],
         "contactPoint": {
             "@type": "ContactPoint",
@@ -454,83 +428,126 @@
         melodic deep house music producer electronic dance music EDM atmospheric beats soul-moving music house music artist deep house producer electronic music creation music production melodic house tracks ambient electronic music dance music producer underground house music progressive house melodic techno electronic music artist music streaming platforms
     </div>
 
-    <!-- Marquee Banner -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <span class="marquee-text">WE RISE</span>
-            <span class="marquee-text">WE FALL</span>
-            <span class="marquee-text">WE ALIVE</span>
-            <span class="marquee-text">WE RISE</span>
-            <span class="marquee-text">WE FALL</span>
-            <span class="marquee-text">WE ALIVE</span>
-            <span class="marquee-text">WE RISE</span>
-            <span class="marquee-text">WE FALL</span>
-            <span class="marquee-text">WE ALIVE</span>
-        </div>
-    </div>
+    <!-- All Links Button -->
+    <a href="https://linktr.ee/teravira" class="all-links-btn" target="_blank" rel="noopener noreferrer" aria-label="View all Tera Vira links">
+        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+        <span>All Links</span>
+    </a>
 
     <main class="container">
         <!-- Header -->
         <header class="header">
-            <div class="logo" aria-label="Tera Vira Logo">
-                <i class="fas fa-music logo-icon" aria-hidden="true"></i>
+            <div class="profile-circle" aria-label="Tera Vira Profile">
+                <i class="fas fa-music" aria-hidden="true"></i>
             </div>
-            <h1 class="artist-name">TERA VIRA</h1>
+            <h1 class="artist-name">Tera Vira</h1>
             <p class="subtitle">Melodic Deep House Producer</p>
-            <p class="description">Creating atmospheric beats and soul-moving electronic music that elevates your spirit</p>
+            <p class="description">Creating atmospheric beats and soul-moving electronic music</p>
         </header>
 
-        <!-- Main Buttons -->
-        <section class="buttons">
-            <a href="https://linktr.ee/teravira" 
-               class="btn btn-primary" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               aria-label="Visit Tera Vira's Linktree for all music and social links">
-                <i class="fas fa-link btn-icon" aria-hidden="true"></i>
-                <span>All My Links</span>
+        <!-- Music Player -->
+        <section class="music-player">
+            <div class="player-header">
+                <h2 class="player-title">🎧 Latest Release</h2>
+            </div>
+            <div class="now-playing">
+                <div class="track-art">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="track-info">
+                    <div class="track-name">Feel The Rush</div>
+                    <div class="track-artist">Tera Vira</div>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-btn" onclick="window.open('https://listen.tidal.com/album/454308971/track/454308974', '_blank')" aria-label="Play Feel The Rush on Tidal">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Streaming Links -->
+        <section class="links">
+            <a href="https://open.spotify.com/intl-tr/artist/2MEEO33iNTIMw7ajtzqhig" class="link-item spotify" target="_blank" rel="noopener">
+                <div class="link-icon">
+                    <i class="fab fa-spotify"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Spotify</div>
+                    <div class="link-subtitle">Stream & Follow</div>
+                </div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <a href="https://music.apple.com/us/artist/tera-vira/1833012399" class="link-item apple" target="_blank" rel="noopener">
+                <div class="link-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Apple Music</div>
+                    <div class="link-subtitle">Listen Now</div>
+                </div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/@teravira" class="link-item youtube" target="_blank" rel="noopener">
+                <div class="link-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">YouTube</div>
+                    <div class="link-subtitle">Watch & Subscribe</div>
+                </div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <a href="https://listen.tidal.com/artist/65410813" class="link-item tidal" target="_blank" rel="noopener">
+                <div class="link-icon">
+                    <i class="fas fa-wave-square"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Tidal</div>
+                    <div class="link-subtitle">Hi-Fi Quality</div>
+                </div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <a href="https://www.deezer.com/tr/artist/341287461" class="link-item deezer" target="_blank" rel="noopener">
+                <div class="link-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">Deezer</div>
+                    <div class="link-subtitle">Stream Now</div>
+                </div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
             </a>
         </section>
 
-        <!-- Business Contact -->
+        <!-- Contact -->
         <section class="contact">
-            <h2 class="contact-title">Business Inquiries</h2>
-            <a href="mailto:teraviramusic@gmail.com" 
-               class="contact-email"
-               aria-label="Send business inquiry email to Tera Vira">
+            <h2 class="contact-title">Get In Touch</h2>
+            <a href="mailto:teraviramusic@gmail.com" class="contact-email" aria-label="Send email to Tera Vira">
                 teraviramusic@gmail.com
             </a>
+            <p class="contact-desc">Available for collaborations, bookings, and press inquiries</p>
         </section>
     </main>
 
     <script>
-        // Preload critical resources
-        const preloadLinks = [
-            'https://linktr.ee/teravira'
-        ];
-        
-        preloadLinks.forEach(url => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = url;
-            link.as = 'document';
-            document.head.appendChild(link);
-        });
-
-        // Enhanced click tracking for analytics
-        document.querySelectorAll('.btn, .contact-email').forEach(element => {
+        // Enhanced click tracking
+        document.querySelectorAll('.link-item, .contact-email, .play-btn').forEach(element => {
             element.addEventListener('click', function(e) {
-                const elementType = this.classList.contains('btn') ? 'button' : 'email';
-                const elementText = this.textContent.trim();
-                
-                // Analytics event (you can integrate with Google Analytics)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'click', {
-                        event_category: elementType,
-                        event_label: elementText
-                    });
-                }
-                
                 // Smooth visual feedback
                 this.style.transform = 'scale(0.98)';
                 setTimeout(() => {
@@ -539,7 +556,7 @@
             });
         });
 
-        // Improved accessibility
+        // Keyboard navigation
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Tab') {
                 document.body.classList.add('keyboard-navigation');
@@ -550,20 +567,19 @@
             document.body.classList.remove('keyboard-navigation');
         });
 
-        // Performance optimization
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(() => {
-                // Lazy load non-critical resources
-                console.log('Page loaded successfully');
-            });
-        }
-
-        // Progressive Web App features
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // You can register a service worker here for offline functionality
-            });
-        }
+        // Preload critical resources
+        const preloadLinks = [
+            'https://linktr.ee/teravira',
+            'https://open.spotify.com/intl-tr/artist/2MEEO33iNTIMw7ajtzqhig'
+        ];
+        
+        preloadLinks.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = url;
+            link.as = 'document';
+            document.head.appendChild(link);
+        });
     </script>
 </body>
 </html>
